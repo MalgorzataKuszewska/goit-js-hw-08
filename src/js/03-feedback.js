@@ -32,6 +32,13 @@ window.addEventListener('load', loadStateFromLocalStorage);
 form.addEventListener('submit', event => {
   event.preventDefault();
   console.log('Submitting form...');
+
+  const formData = {
+    email: emailInput.value,
+    message: messageInput.value,
+  };
+  console.log('Form data before clearing:', formData);
+
   localStorage.removeItem('feedback-form-state');
   emailInput.value = '';
   messageInput.value = '';

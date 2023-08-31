@@ -11,15 +11,7 @@ const updateTimeInLocalStorage = throttle(data => {
 const savedTime = parseFloat(
   localStorage.getItem('videoplayer-current-time') || 0
 );
-player.setCurrentTime(savedTime).catch(error => {
-  switch (error.name) {
-    case 'RangeError':
-      break;
-    default:
-      break;
-  }
-});
-
+player.setCurrentTime(savedTime);
 player.on('timeupdate', updateTimeInLocalStorage);
 
 player.on('play', () => {
